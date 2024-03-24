@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SRTN Scheduler Simulator</title>
+    <link rel="stylesheet" href="SRTN.css" />
+  </head>
+  <body>
+    <h1>SRTN Scheduler Simulator</h1>
+    <div id="input-container">
+      <label for="num-processes">Number of Processes:</label>
+      <input type="number" id="num-processes" />
+      <button onclick="addProcesses()">Submit</button>
+    </div>
+    <div id="process-input"></div>
+    <div id="output-container">
+      <h2>Output</h2>
+      <table id="output-table">
+        <!-- Output table will be generated here -->
+      </table>
+    </div>
+    <script src="SRTN.js"></script>
+  </body>
+</html>
