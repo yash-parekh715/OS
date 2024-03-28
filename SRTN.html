@@ -22,7 +22,7 @@
       </p>
 
       <p class="para">
-        In the Shortest Remaining Time First (SRTF) scheduling algorithm, the
+        In the Shortest Remaining Time Next (SRTN) scheduling algorithm, the
         process with the smallest amount of time remaining until completion is
         selected to execute. Since the currently executing process is the one
         with the shortest amount of time remaining by definition, and since that
@@ -32,12 +32,12 @@
       </p>
 
       <h2 class="heading">
-        <center>Some of the key characteristics of SRTF</center>
+        <center>Some of the key characteristics of SRTN</center>
       </h2>
       <ul>
         <li>
           <p class="para">
-            Preemptive: SRTF is a preemptive algorithm, which means that the
+            Preemptive: SRTN is a preemptive algorithm, which means that the
             currently running process can be interrupted if a new process
             arrives with a shorter burst time. This helps in ensuring that the
             processes with the shortest burst times are executed first.
@@ -45,7 +45,7 @@
         </li>
         <li>
           <p class="para">
-            Dynamic: SRTF is a dynamic algorithm, which means that it can adapt
+            Dynamic: SRTN is a dynamic algorithm, which means that it can adapt
             to changes in the arrival time and burst time of processes. It
             constantly re-evaluates the remaining burst time of each process and
             schedules the process with the shortest remaining time.
@@ -53,7 +53,7 @@
         </li>
         <li>
           <p class="para">
-            Low waiting time: SRTF is known for its low waiting time. By
+            Low waiting time: SRTN is known for its low waiting time. By
             selecting the process with the shortest remaining burst time, it
             ensures that the processes with the shortest burst times are
             executed first, which reduces the average waiting time of processes.
@@ -61,7 +61,7 @@
         </li>
         <li>
           <p class="para">
-            SRTF has a higher complexity than other scheduling algorithms like
+            SRTN has a higher complexity than other scheduling algorithms like
             FCFS (First Come First Serve) and RR (Round Robin), because it
             requires frequent context switches and preemptions.
           </p>
