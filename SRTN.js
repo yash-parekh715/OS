@@ -11,7 +11,7 @@ function addProcesses() {
                   <td><input type="number" id="burst-time-${i}"></td>
               </tr>`;
   }
-  html += '</table><button onclick="calculate()">Calculate</button>';
+  html += '</table><button onclick="calculate()" class="calculate">Calculate</button>';
   document.getElementById("process-input").innerHTML = html;
 }
 function calculate() {
@@ -83,7 +83,9 @@ function calculate() {
     outputTable += `<tr>
                             <td>Process ${i}</td>
                             <td>${arrivalTime[i]}</td>
-                            <td>${burstTime[i]}</td>
+                            <td>${Number.parseInt(
+                              document.getElementById(`burst-time-${i}`).value
+                            )}</td>
                             <td>${finishTime[i]}</td>
                             <td>${waitingTime[i]}</td>
                             <td>${turnaroundTime[i]}</td>

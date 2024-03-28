@@ -1,13 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SRTN Scheduler Simulator</title>
     <link rel="stylesheet" href="SRTN.css" />
   </head>
   <body>
-    <h1>SRTN Scheduler Simulator</h1>
+    <h1 class="heading_container"><center>SRTN Scheduler</center></h1>
+
+    <div class="container">
+      <p class="para">
+        Shortest Remaining Time Next (SRTN) is a CPU scheduling algorithm used
+        in computer operating systems. It is a preemptive version of Shortest
+        Job Next (SJN) or Shortest Job First (SJF) algorithm, where the
+        scheduler always selects the process with the smallest remaining burst
+        time to execute next.
+      </p>
+
+      <p class="para">
+        In the Shortest Remaining Time First (SRTF) scheduling algorithm, the
+        process with the smallest amount of time remaining until completion is
+        selected to execute. Since the currently executing process is the one
+        with the shortest amount of time remaining by definition, and since that
+        time should only reduce as execution progresses, processes will always
+        run until they complete or a new process is added that requires a
+        smaller amount of time.
+      </p>
+
+      <h2 class="heading">
+        <center>Some of the key characteristics of SRTF</center>
+      </h2>
+      <ul>
+        <li>
+          <p class="para">
+            Preemptive: SRTF is a preemptive algorithm, which means that the
+            currently running process can be interrupted if a new process
+            arrives with a shorter burst time. This helps in ensuring that the
+            processes with the shortest burst times are executed first.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            Dynamic: SRTF is a dynamic algorithm, which means that it can adapt
+            to changes in the arrival time and burst time of processes. It
+            constantly re-evaluates the remaining burst time of each process and
+            schedules the process with the shortest remaining time.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            Low waiting time: SRTF is known for its low waiting time. By
+            selecting the process with the shortest remaining burst time, it
+            ensures that the processes with the shortest burst times are
+            executed first, which reduces the average waiting time of processes.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            SRTF has a higher complexity than other scheduling algorithms like
+            FCFS (First Come First Serve) and RR (Round Robin), because it
+            requires frequent context switches and preemptions.
+          </p>
+          <hr />
+          <img
+            class="img1"
+            src="Screenshot 2024-03-28 235955.png"
+            height="550px"
+            width="650px"
+          />
+          <img
+            class="img2"
+            src="Screenshot 2024-03-29 000024.png"
+            height="700px"
+            width="650px"
+          />
+          <hr />
+        </li>
+      </ul>
+      <h2 class="heading"><center>Advantages:</center></h2>
+      <ul>
+        <li>
+          <p class="para">Short processes are handled very quickly.</p>
+        </li>
+        <li>
+          <p class="para">
+            The system also requires very little overhead since it only makes a
+            decision when a process completes or a new process is added.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            When a new process is added the algorithm only needs to compare the
+            currently executing process with the new process, ignoring all other
+            processes currently waiting to execute.
+          </p>
+        </li>
+        <!-- </ul> -->
+        <h2 class="heading"><center>Disadvantages:</center></h2>
+        <li>
+          <p class="para">
+            Like shortest job first, it has the potential for process
+            starvation.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            Long processes may be held off indefinitely if short processes are
+            continually added.
+          </p>
+        </li>
+      </ul>
+    </div>
     <div id="input-container">
       <label for="num-processes">Number of Processes:</label>
       <input type="number" id="num-processes" />
