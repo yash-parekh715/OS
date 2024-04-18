@@ -78,12 +78,17 @@ h1,
 
 .img1 {
   margin: 10px auto 0;
-  display: block;
+  /* display: block; */
 }
 
 .img2 {
-  margin: 10px auto 0;
-  display: block;
+  margin: 15px 65px 0px;
+  /* display: block; */
+}
+
+.img3 {
+  margin: 15px 0px 0px;
+  /* display: block; */
 }
 
 #process-input {

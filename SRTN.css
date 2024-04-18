@@ -266,6 +266,10 @@ h1,
   display: block;
 }
 
+.img3 {
+  margin: 10px auto 0;
+  display: block;
+}
 #process-input {
   font-family: "Courier New", Courier, monospace;
   font-weight: 900;
