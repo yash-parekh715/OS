@@ -257,19 +257,15 @@ h1,
 }
 
 .img1 {
-  margin: 10px auto 0;
-  display: block;
+  margin: 10px 2px 0px;
+  /* display: block; */
 }
 
 .img2 {
-  margin: 10px auto 0;
-  display: block;
+  margin: 10px 20px 0px;
+  /* display: block; */
 }
 
-.img3 {
-  margin: 10px auto 0;
-  display: block;
-}
 #process-input {
   font-family: "Courier New", Courier, monospace;
   font-weight: 900;
