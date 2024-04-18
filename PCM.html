@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Producer Consumer Problem</title>
+    <link rel="stylesheet" href="PCM.css" />
+  </head>
+  <body>
+    <h1 class="heading_container">
+      <center>Producer Consumer Problem</center>
+    </h1>
+
+    <div class="container">
+      <p class="para">
+        The Producer-Consumer problem is a classical multi-process
+        synchronization problem, that is we are trying to achieve
+        synchronization between more than one process.
+      </p>
+
+      <p class="para">
+        There is one Producer in the producer-consumer problem, Producer is
+        producing some items, whereas there is one Consumer that is consuming
+        the items produced by the Producer. The same memory buffer is shared by
+        both producers and consumers which is of fixed-size..
+      </p>
+
+      <p class="para">
+        The task of the Producer is to produce the item, put it into the memory
+        buffer, and again start producing items. Whereas the task of the
+        Consumer is to consume the item from the memory buffer.
+      </p>
+    <hr>
+      <h2 class="heading">
+        <center>Let's understand what is the problem?</center>
+      </h2>
+      <ul>
+          <p class="para">
+            Below are a few points that considered as the problems occur in Producer-Consumer:
+            
+            The producer should produce data only when the buffer is not full. In case it is found that the buffer is full, the producer is not allowed to store any data into the memory buffer.
+            Data can only be consumed by the consumer if and only if the memory buffer is not empty. In case it is found that the buffer is empty, the consumer is not allowed to use any data from the memory buffer.
+            Accessing memory buffer should not be allowed to producer and consumer at the same time.
+            Let's see the code for the above problem:
+          </p>
+        <hr />
+        </li>
+      </ul>
+      <h2 class="heading"><center>Advantages:</center></h2>
+      <ul>
+        <li>
+          <p class="para">Short processes are handled very quickly.</p>
+        </li>
+        <li>
+          <p class="para">
+            When a new process is added the algorithm only needs to compare the
+            currently executing process with the new process, ignoring all other
+            processes currently waiting to execute.
+          </p>
+        </li>
+        <!-- </ul> -->
+        <h2 class="heading"><center>Disadvantages:</center></h2>
+        <li>
+          <p class="para">
+            Like shortest job first, it has the potential for process
+            starvation.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            Long processes may be held off indefinitely if short processes are
+            continually added.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <form id="producer-consumer-form">
+        <label for="buffer-size">Buffer Size:</label>
+        <input type="number" id="buffer-size" required />
+        <br />
+        <label for="num-producers">Number of Producers:</label>
+        <input type="number" id="num-producers" required />
+        <br />
+        <label for="num-consumers">Number of Consumers:</label>
+        <input type="number" id="num-consumers" required />
+        <br />
+        <button type="submit">Run Simulation</button>
+    </form>
+    <div id="output-container"></div>
+    <!-- <div id="input-container">
+        <label for="num-processes">Number of Processes:</label>
+        <input type="number" id="num-processes" />
+        <button onclick="addProcesses()">Submit</button>
+      </div>
+      <div id="process-input"></div>
+      <div id="output-container">
+        <h2>Output</h2>
+        <table id="output-table">
+        </table>
+      </div> -->
+      <script src="PCM.js"></script>
+  </body>
+</html>
