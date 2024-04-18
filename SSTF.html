@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shortest Seek Time First</title>
+    <link rel="stylesheet" href="SSTF.css" />
+  </head>
+  <body>
+    <h1 class="heading_container">
+      <center>Shortest Seek Time First (Disc Scheduling Algorithm)</center>
+    </h1>
+
+    <div class="container">
+      <p class="para">
+        SSTF (Shortest Seek Time First) is an abbreviation that selects the
+        request which is closest to the current head position before moving the
+        head away to service other requests. This is done by selecting the
+        request which has the least seek time from the current head position.
+      </p>
+
+      <p class="para">
+        SSTF scheduling priority is given to those processes which have the
+        shortest seek, even if these requests are not the first ones in the
+        queue. To implement this, the seek time of every request is calculated
+        in advance in the queue and then requests are scheduled according to
+        their seek time. SSTF does not ensure fairness as it can lead to
+        indefinite postponement as its seek pattern tends to be highly
+        localized. SSTF is like Shortest Job First (SJF) as it can prevent
+        distant requests from being serviced under heavy load which can be
+        termed as Starvation.
+      </p>
+
+      <h2 class="heading">
+        <center>Some of the key characteristics of SSTF</center>
+      </h2>
+      <ul>
+        <li>
+          <p class="para">
+            Multiple I/O requests may arrive by different processes and only one
+            I/O request can be served at a time by the disk controller. Thus
+            other I/O requests need to wait in the waiting queue and need to be
+            scheduled.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            Two or more requests may be far from each other so this can result
+            in greater disk arm movement.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            Hard drives are one of the slowest parts of the computer system and
+            thus need to be accessed in an efficient manner.
+          </p>
+        </li>
+        <hr />
+        <img
+          class="img1"
+          src="Screenshot 2024-04-19 021346.png"
+          height="350px"
+          width="350px"
+        />
+        <img
+          class="img2"
+          src="Screenshot 2024-04-19 021448.png"
+          height="350px"
+          width="350px"
+        />
+        <img
+          class="img3"
+          src="Screenshot 2024-04-19 021537.png"
+          height="350px"
+          width="325px"
+        />
+        <hr />
+      </ul>
+      <h2 class="heading"><center>Advantages:</center></h2>
+      <ul>
+        <li>
+          <p class="para">
+            Throughput is better than FCFS (First Come First Serve). Disk
+            Scheduling Algorithm.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            Average Response Time is minimized due to less number of head
+            movements.
+          </p>
+        </li>
+        <!-- </ul> -->
+        <h2 class="heading"><center>Disadvantages:</center></h2>
+        <li>
+          <p class="para">
+            There is high overhead as we calculate the seek time for every
+            request in advance.
+          </p>
+        </li>
+        <li>
+          <p class="para">
+            Starvation of a request occurs if it has a higher seek time than the
+            other requests in the queue even if it may have arrived first in the
+            queue.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
