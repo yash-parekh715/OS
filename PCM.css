@@ -207,3 +207,12 @@ h1,
     padding: 15px;
   }
 }
+
+.code{
+  background: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  font-weight: 600;
+  margin: auto;
+  width: 800px;
+}

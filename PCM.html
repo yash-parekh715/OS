@@ -8,23 +8,20 @@
   </head>
   <body>
     <h1 class="heading_container">
-      <center>Producer Consumer Problem</center>
+      <center>Producer Consumer Problem Using Monitor</center>
     </h1>
-
     <div class="container">
       <p class="para">
         The Producer-Consumer problem is a classical multi-process
         synchronization problem, that is we are trying to achieve
         synchronization between more than one process.
       </p>
-
       <p class="para">
         There is one Producer in the producer-consumer problem, Producer is
         producing some items, whereas there is one Consumer that is consuming
         the items produced by the Producer. The same memory buffer is shared by
         both producers and consumers which is of fixed-size..
       </p>
-
       <p class="para">
         The task of the Producer is to produce the item, put it into the memory
         buffer, and again start producing items. Whereas the task of the
@@ -34,64 +31,63 @@
       <h2 class="heading">
         <center>Let's understand what is the problem?</center>
       </h2>
-      <ul>
           <p class="para">
-            Below are a few points that considered as the problems occur in Producer-Consumer:
-            
-            The producer should produce data only when the buffer is not full. In case it is found that the buffer is full, the producer is not allowed to store any data into the memory buffer.
-            Data can only be consumed by the consumer if and only if the memory buffer is not empty. In case it is found that the buffer is empty, the consumer is not allowed to use any data from the memory buffer.
-            Accessing memory buffer should not be allowed to producer and consumer at the same time.
-            Let's see the code for the above problem:
+            The producer-consumer problem is a synchronization problem between different processes. There are three entities in this problem: a producer, a consumer, and a memory buffer. Both the producer and consumer share the same memory buffer. The producer produces some items and pushes them into the memory buffer.
           </p>
-        <hr />
-        <img
-            class="img1"
-            src="Screenshot 2024-04-19 003853.png"
-            height="400px"
-            width="400px"
-          />
-          <img
-            class="img2"
-            src="Screenshot 2024-04-19 004211.png"
-            height="400px"
-            width="400px"
-          />
-          <img
-            class="img3"
-            src="Screenshot 2024-04-19 004506.png"
-            height="400px"
-            width="400px"
-          />
-        <hr />
-        </li>
-      </ul>
-      <h2 class="heading"><center>Advantages:</center></h2>
-      <ul>
-        <li>
-          <p class="para">Short processes are handled very quickly.</p>
-        </li>
-        <li>
-          <p class="para">
-            When a new process is added the algorithm only needs to compare the
-            currently executing process with the new process, ignoring all other
-            processes currently waiting to execute.
-          </p>
-        </li>
-        <!-- </ul> -->
-        <h2 class="heading"><center>Disadvantages:</center></h2>
-        <li>
-          <p class="para">
-            Like shortest job first, it has the potential for process
-            starvation.
-          </p>
-        </li>
-        <li>
-          <p class="para">
-            Long processes may be held off indefinitely if short processes are
-            continually added.
-          </p>
-        </li>
-      </ul>
+        <hr>
+        <h2 class="heading">
+          <center>What is Monitor?</center>
+        </h2>
+            <p class="para">
+              Monitors make solving the producer-consumer a little easier. Mutual exclusion is achieved by placing the critical section of a program inside a monitor. In the code below, the critical sections of the producer and consumer are inside the monitor ProducerConsumer.
+            </p>
+          <hr>
+          <div class="code">
+            <pre>
+            <code>
+    monitor ProducerConsumer
+    condition full, empty;
+    int count;
+  
+  procedure enter();
+  {
+    if (count == N) wait(full);        // if buffer is full, block
+    put_item(widget);                  // put item in buffer
+    count = count + 1;                 // increment count of full slots
+    if (count == 1)  signal(empty);    // if buffer was empty, wake consumer
+  }
+
+  procedure remove();
+  {
+    if (count == 0)  wait(empty);      // if buffer is empty, block
+    remove_item(widget);               // remove item from buffer
+    count = count - 1;                 // decrement count of full slots
+    if (count == N-1)  signal(full);   // if buffer was full, wake producer
+  }
+
+  count = 0;
+  end monitor;
+
+  Producer();
+  {
+    while (TRUE)
+   {
+      make_item(widget);               // make a new item
+      ProducerConsumer.enter;          // call enter function in monitor
+   }
+  }
+
+  Consumer();
+  {
+    while (TRUE)
+    {
+      ProducerConsumer.remove;         // call remove function in monitor
+      consume_item;                    // consume an item
+   }
+  }
+            </code>
+            </pre>
+          </div>
     </div>
     <form id="producer-consumer-form">
         <label for="buffer-size">Buffer Size:</label>
