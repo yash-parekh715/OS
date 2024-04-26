@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimal Page Replacement Algorithm</title>
+    <link rel="stylesheet" href="OPRA.css" />
+  </head>
+  <body>
+    <h1 class="heading_container">
+      <center>Optimal Page Replacement Algorithm</center>
+    </h1>
+    <div class="container">
+      <p class="para">
+        In operating systems, whenever a new page is referred and not present in memory, page fault occurs and Operating System replaces one of the existing pages with newly needed page. Different page replacement algorithms suggest different ways to decide which page to replace. The target for all algorithms is to reduce number of page faults. In this algorithm, OS replaces the page that will not be used for the longest period of time in future.
+      </p>
+      <p class="para">
+        The idea is simple, for every reference we do following :
+      </p>
+      <p class="para">
+        <ul class="para">
+            <li>
+                If referred page is already present, increment hit count.
+            </li>
+            <li>
+                If not present, find if a page that is never referenced in future. If such a page exists, replace this page with new page. If no such page exists, find a page that is referenced farthest in future. Replace this page with new page.
+            </li>
+        </ul>
+      </p>
+      <hr />
+      <div class="code">
+        <pre>
+            <code class="para">
+                    // Function to find the page frame that will be replaced next
+                    int predict(int ref_str[], int frame_items[], int refStrLen, int i, int frame_occupied)
+                    {
+                        // Initialize the index of the page to be replaced
+                        int min_index = i;
+                    
+                        // Find the page that will be farthest in future
+                        for (int j = i + 1; j < refStrLen; j++)
+                        {
+                            if (frame_items[min_index] == ref_str[j])
+                            {
+                                min_index = j;
+                            }
+                        }
+                    
+                        return min_index;
+                    }
+                    
+                    // Function to implement the optimal page replacement algorithm
+                    void optimalPage(int ref_str[], int refStrLen, int frame_items[], int max_frames)
+                    {
+                        // Initialize the number of page faults
+                        int page_faults = 0;
+                    
+                        // Initialize the frame items
+                        for (int i = 0; i < max_frames; i++)
+                        {
+                            frame_items[i] = -1;
+                        }
+                    
+                        // Iterate over the reference string
+                        for (int i = 0; i < refStrLen; i++)
+                        {
+                            // Check if the page is already in the frame
+                            int flag = 0;
+                            for (int j = 0; j < max_frames; j++)
+                            {
+                                if (frame_items[j] == ref_str[i])
+                                {
+                                    flag = 1;
+                                    break;
+                                }
+                            }
+                    
+                            // If the page is not in the frame, replace the page that will be farthest in future
+                            if (flag == 0)
+                            {
+                                int min_index = predict(ref_str, frame_items, refStrLen, i, max_frames);
+                                frame_items[min_index] = ref_str[i];
+                                page_faults++;
+                            }
+                        }
+                    
+                        // Print the number of page faults
+                        printf("\nNumber of page faults: %d\n", page_faults);
+                    }
+                    
+                    // Driver function
+                    int main()
+                    {
+                        // Reference string
+                        int ref_str[] = {7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1};
+                    
+                        // Number of page frames
+                        int max_frames = 3;
+                    
+                        // Frame items
+                        int frame_items[max_frames];
+                    
+                        // Call the optimal page replacement algorithm
+                        optimalPage(ref_str, sizeof(ref_str) / sizeof(ref_str[0]), frame_items, max_frames);
+                    
+                        return 0;
+                    }
+            </code>
+        </pre>
+      </div>
+    </div>
+  </body>
+</html>

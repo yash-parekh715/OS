@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..1000&display=swap");
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fbeee9;
+  margin: 0;
+  padding: 0;
+}
+
+#input-container {
+  margin-bottom: 20px;
+}
+
+#input-container label {
+  font-size: 22px;
+  font-weight: 800;
+  font-family: "Courier New", Courier, monospace;
+  margin: 0px 10px 0px 22px;
+}
+
+#input-container input[type="number"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#input-container button.calculate {
+  margin-top: 10px;
+}
+
+#output-container {
+  padding: 20px;
+  background-color: #fbeee9;
+  border-radius: 5px;
+}
+
+#output-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#output-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.container {
+  border: 3px solid #422800;
+  margin: 10px auto;
+  padding: 15px;
+  max-width: 90%;
+  position: relative;
+}
+
+h1,
+.para {
+  color: #422800;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+}
+.points {
+  color: #422800;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: larger;
+}
+
+.code {
+  /* background: white; */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 6px;
+  font-weight: 600;
+  margin: auto;
+  width: 1600px;
+}
+
+.para {
+  font-size: 21px;
+}
+
+.heading {
+  text-decoration: underline;
+}
+
+.heading_container {
+  border: 3px solid #422800;
+  margin: 5px auto;
+  padding: 15px;
+  max-width: 90%;
+  position: relative;
+}
+.img1 {
+  margin: 15px auto 0;
+  margin-left: -15px;
+  /* display: block; */
+}
+
+.img2 {
+  margin: 15px 25px 0px;
+  /* display: block; */
+}
+
+.img3 {
+  margin: 15px 0px 0px;
+  /* display: block; */
+}
